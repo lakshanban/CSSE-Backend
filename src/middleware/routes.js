@@ -3,9 +3,9 @@ const login = require('../controllers/loginController').login
 
 const routes = [
     {
-        path: '/',
+        path: '/login',
         handler: login,
-        method: 'GET'
+        method: 'POST'
     }
 ]
 
