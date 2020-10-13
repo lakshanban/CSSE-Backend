@@ -1,17 +1,11 @@
-const { loginService } = require('../services/loginService')
+const loginService = require('../services/loginService').loginService
 
-const login = async(req, res) => {
-    const result = await loginService(req.body.username, req.body.password)
-    console.log(result)
-    if(result){
-        res.status(200).json({
-            loginResult: true,
-            userData: result[0]
-        })
-    }
-    
+const loginController = async (req, res) => {
+    console.log(req)
+    const result = await loginService(req.body.email, req.body.password)
+    res.send(result)
 }
 
 module.exports = {
-    login
+    loginController
 }
