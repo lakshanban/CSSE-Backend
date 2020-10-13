@@ -1,7 +1,7 @@
 const DATABASE_USERNAME = "root"
 const DATABASE_PASSWORD = "root"
 const DATABASE_HOST = "localhost"
-const DATABASE = "procurement"
+const DATABASE = "csse_mobileapp"
 
 
 module.exports = {
