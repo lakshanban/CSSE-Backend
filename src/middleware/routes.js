@@ -1,7 +1,7 @@
 const loginController = require('../controllers/loginController').loginController
 const { selectItemsByCategoryController, selectItemsBySupplierController, selectItemByCategoryAndSupplierController } = require('../controllers/itemController')
 const { getItemsByRequisitionController, addItemToCartController } = require('../controllers/cartController')
-
+const { getAllCategoriesController } = require('../controllers/categoryController')
 const routes = [
     {
         path: '/login',
@@ -36,6 +36,12 @@ const routes = [
     {
         path: '/cart/getbyrequisition',
         handler: getItemsByRequisitionController,
+        method: 'POST'
+    },
+
+    {
+        path: '/category/getall',
+        handler: getAllCategoriesController,
         method: 'POST'
     }
 ]
