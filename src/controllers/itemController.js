@@ -8,14 +8,14 @@ const selectItemsByCategoryController = async (req, res) => {
 
 const selectItemsBySupplierController = async (req, res) => {
     const suplierId = req.body.suplierId
-    const result = await selectItemsByCategory(suplierId)
+    const result = await selectItemsBySupplier(suplierId)
     res.status(200).json(result);
 }
 
 const selectItemByCategoryAndSupplierController = async (req, res) => {
     const categoryId = req.body.categoryId
     const suplierId = req.body.suplierId
-    const result = await selectItemsByCategory(categoryId, suplierId)
+    const result = await selectItemByCategoryAndSupplier(categoryId, suplierId)
     res.status(200).json(result);
 }
 
