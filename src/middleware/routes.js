@@ -2,6 +2,8 @@ const loginController = require('../controllers/loginController').loginControlle
 const { selectItemsByCategoryController, selectItemsBySupplierController, selectItemByCategoryAndSupplierController } = require('../controllers/itemController')
 const { getItemsByRequisitionController, addItemToCartController } = require('../controllers/cartController')
 const { getAllCategoriesController } = require('../controllers/categoryController')
+const { getAllRequisitionByManagerController, getAllRequisitionsController, addRequisitionController } = require('../controllers/requisitionController')
+
 const routes = [
     {
         path: '/login',
@@ -42,6 +44,24 @@ const routes = [
     {
         path: '/category/getall',
         handler: getAllCategoriesController,
+        method: 'GET'
+    },
+
+    {
+        path: '/requisition/getall',
+        handler: getAllRequisitionsController,
+        method: 'GET'
+    },
+
+    {
+        path: '/requisition/add',
+        handler: addRequisitionController,
+        method: 'POST'
+    },
+
+    {
+        path: '/requisition/getbymanager',
+        handler: getAllRequisitionByManagerController,
         method: 'POST'
     }
 ]
