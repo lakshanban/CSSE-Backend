@@ -3,6 +3,7 @@ const { selectItemsByCategoryController, selectItemsBySupplierController, select
 const { getItemsByRequisitionController, addItemToCartController } = require('../controllers/cartController')
 const { getAllCategoriesController } = require('../controllers/categoryController')
 const { getAllRequisitionByManagerController, getAllRequisitionsController, addRequisitionController } = require('../controllers/requisitionController')
+const { addBidsController, getAllBidsBySupplierController, getAllBidsController } = require('../controllers/bidController')
 
 const routes = [
     {
@@ -62,6 +63,24 @@ const routes = [
     {
         path: '/requisition/getbymanager',
         handler: getAllRequisitionByManagerController,
+        method: 'POST'
+    },
+
+    {
+        path: '/bid/getall',
+        handler: getAllBidsController,
+        method: 'GET'
+    },
+
+    {
+        path: '/bid/getallbysupplier',
+        handler: getAllBidsBySupplierController,
+        method: 'POST'
+    },
+
+    {
+        path: '/bid/add',
+        handler: addBidsController,
         method: 'POST'
     }
 ]
