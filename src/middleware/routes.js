@@ -7,6 +7,8 @@ const { addBidsController, getAllBidsBySupplierController, getAllBidsController 
 const { getAllSuppliersController, supplierLoginController } = require('../controllers/supplierController')
 const { addPaymentController, getAllPaymentsController, getPaymentByIdController } = require('../controllers/paymentController')
 const { getAllinvoicesController, getInvoiceByIdController } = require('../controllers/invoiceController')
+const { getAllSitesController, getSiteByidController } = require('../controllers/siteController')
+const { getSiteByid } = require('../services/siteService')
 
 // this route file holds all the endpoints which applies to the express app
 
@@ -130,6 +132,20 @@ const routes = [
         handler: getInvoiceByIdController,         //return Invoice details by id . receives(invoice_id: INT )
         method: 'POST'
     },
+
+    {
+        path: '/site/getall',
+        handler: getAllSitesController,         //return all the sites details 
+        method: 'GET'
+    },
+
+    {
+        path: '/site/getbyid',
+        handler: getSiteByidController,         //return site details by id . receives(invoice_id: INT )
+        method: 'POST'
+    },
+
+
 ]
 
 module.exports = { routes } 
