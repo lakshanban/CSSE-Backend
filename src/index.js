@@ -1,3 +1,9 @@
+/**
+ * Author : Lakshan Bandara
+ * Sri lanka Institute of Information Technology
+ */
+
+
 const applyMiddleware = require('./utils').applyMiddleware
 const applyROutes = require('./utils').applyRoutes
 const express = require('express')

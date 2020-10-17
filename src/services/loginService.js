@@ -1,5 +1,6 @@
 const databseService = require('./databaseService').QueryDatabase
 
+// user login except the supplier login
 const loginService = async (email, passsword) => {
     const result = await databseService(`SELECT * FROM USER WHERE email='${email}' and password= '${passsword}'`)
     if (result.length === 1) {
