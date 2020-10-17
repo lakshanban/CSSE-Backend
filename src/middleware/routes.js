@@ -6,6 +6,7 @@ const { getAllRequisitionByManagerController, getAllRequisitionsController, addR
 const { addBidsController, getAllBidsBySupplierController, getAllBidsController } = require('../controllers/bidController')
 const { getAllSuppliersController, supplierLoginController } = require('../controllers/supplierController')
 const { addPaymentController, getAllPaymentsController, getPaymentByIdController } = require('../controllers/paymentController')
+const { getAllinvoicesController, getInvoiceByIdController } = require('../controllers/invoiceController')
 
 const routes = [
     {
@@ -113,6 +114,18 @@ const routes = [
     {
         path: '/payment/addpayment',
         handler: addPaymentController,
+        method: 'POST'
+    },
+
+    {
+        path: '/invoice/getall',
+        handler: getAllinvoicesController,
+        method: 'GET'
+    },
+
+    {
+        path: '/invoice/getbyid',
+        handler: getInvoiceByIdController,
         method: 'POST'
     },
 ]
