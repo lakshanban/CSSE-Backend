@@ -8,82 +8,84 @@ const { getAllSuppliersController, supplierLoginController } = require('../contr
 const { addPaymentController, getAllPaymentsController, getPaymentByIdController } = require('../controllers/paymentController')
 const { getAllinvoicesController, getInvoiceByIdController } = require('../controllers/invoiceController')
 
+// this route file holds all the endpoints which applies to the express app
+
 const routes = [
     {
         path: '/login',
-        handler: loginController,
+        handler: loginController,  //handles the login POST request  receives( usernam: String , password: String)
         method: 'POST'
     },
 
     {
         path: '/item/getbycategory',
-        handler: selectItemsByCategoryController,
+        handler: selectItemsByCategoryController,   //return the items filtered by category . receives(catregory: String)
         method: 'POST'
     },
 
     {
         path: '/item/getbysuplier',
-        handler: selectItemsBySupplierController,
+        handler: selectItemsBySupplierController,  //return the items filtered by supplier . receives(supplier_id: String)
         method: 'POST'
     },
 
     {
         path: '/item/getbycategoryandsuplier',
-        handler: selectItemByCategoryAndSupplierController,
+        handler: selectItemByCategoryAndSupplierController,  //return the items filtered by supplier and category . receives(category: String, supplier_id: String)
         method: 'POST'
     },
 
     {
         path: '/cart/additem',
-        handler: addItemToCartController,
+        handler: addItemToCartController,  //add Item to cart . receives(requisition_id: INT, ite,_id: INT)
         method: 'POST'
     },
 
     {
         path: '/cart/getbyrequisition',
-        handler: getItemsByRequisitionController,
+        handler: getItemsByRequisitionController,   //return the item for specified requisition (requisition_id: INT)
         method: 'POST'
     },
 
     {
         path: '/category/getall',
-        handler: getAllCategoriesController,
+        handler: getAllCategoriesController,   //return all the categories
         method: 'GET'
     },
 
     {
         path: '/requisition/getall',
-        handler: getAllRequisitionsController,
+        handler: getAllRequisitionsController,  //return all the requisitions
         method: 'GET'
     },
 
     {
         path: '/requisition/add',
-        handler: addRequisitionController,
+        handler: addRequisitionController,    //add requisition  receives (manager_id: INT, status: String, description: String , due_date: Date)
         method: 'POST'
     },
 
     {
         path: '/requisition/getbymanager',
-        handler: getAllRequisitionByManagerController,
+        handler: getAllRequisitionByManagerController,  // return all the requistions by manager. recceives(manager_id: INT)
         method: 'POST'
     },
 
     {
         path: '/bid/getall',
-        handler: getAllBidsController,
+        handler: getAllBidsController,        //return all the requisitions
         method: 'GET'
     },
 
     {
         path: '/bid/getallbysupplier',
-        handler: getAllBidsBySupplierController,
+        handler: getAllBidsBySupplierController,  // return all the bids by supplier. receives(supplier_id: INT)
         method: 'POST'
     },
 
     {
         path: '/bid/add',
-        handler: addBidsController,
+        handler: addBidsController,     // add bids .. receives(transport_cost: double, amount: double, description: String, supplierId: INT, requisition_id: INT)
         method: 'POST'
     },
 
@@ -95,37 +97,37 @@ const routes = [
 
     {
         path: '/supplier/getall',
-        handler: getAllSuppliersController,
+        handler: getAllSuppliersController,    //return all the suppliers
         method: 'GET'
     },
 
     {
         path: '/payment/getall',
-        handler: getAllPaymentsController,
+        handler: getAllPaymentsController,     //return all the payments
         method: 'GET'
     },
 
     {
         path: '/payment/getbyid',
-        handler: getPaymentByIdController,
+        handler: getPaymentByIdController,      //return payment details by id . receives(payment_id: INT)
         method: 'POST'
     },
 
     {
         path: '/payment/addpayment',
-        handler: addPaymentController,
+        handler: addPaymentController,          //add payment details. receives(payee: INT, payer: INT, remark: String, date: Date)
         method: 'POST'
     },
 
     {
         path: '/invoice/getall',
-        handler: getAllinvoicesController,
+        handler: getAllinvoicesController,        //return all the Invoices details
         method: 'GET'
     },
 
     {
         path: '/invoice/getbyid',
-        handler: getInvoiceByIdController,
+        handler: getInvoiceByIdController,         //return Invoice details by id . receives(invoice_id: INT )
         method: 'POST'
     },
 ]

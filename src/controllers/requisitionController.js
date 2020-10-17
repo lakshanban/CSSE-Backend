@@ -1,6 +1,7 @@
 const e = require('express')
 const { addRequisition, getAllRequisitionByManager, getAllRequisitions } = require('../services/requisitionService')
 
+// handles the POST requests add new requisitions . path :[requisitions/add]
 const addRequisitionController = async (req, res) => {
     const manager = req.body.manager
     const status = "pending"
@@ -15,11 +16,13 @@ const addRequisitionController = async (req, res) => {
 
 }
 
+// handles the GET requsts to fetch all the requistion details path :[requisition/getall]
 const getAllRequisitionsController = async (req, res) => {
     const result = await getAllRequisitions()
     res.status(200).json(result)
 }
 
+// handles the GET requsts to fetch all the requistion details by passing the requisiotion id path :[requisition/getbyid]
 const getAllRequisitionByManagerController = async (req, res) => {
     const manager = req.body.manager
     const result = await getAllRequisitionByManager(manager)
@@ -27,6 +30,7 @@ const getAllRequisitionByManagerController = async (req, res) => {
     res.status(200).json(result)
 }
 
+//exports the controllers to use inside the routes.js
 module.exports = {
     addRequisitionController,
     getAllRequisitionByManagerController,
