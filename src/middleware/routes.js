@@ -5,6 +5,7 @@ const { getAllCategoriesController } = require('../controllers/categoryControlle
 const { getAllRequisitionByManagerController, getAllRequisitionsController, addRequisitionController } = require('../controllers/requisitionController')
 const { addBidsController, getAllBidsBySupplierController, getAllBidsController } = require('../controllers/bidController')
 const { getAllSuppliersController, supplierLoginController } = require('../controllers/supplierController')
+const { addPaymentController, getAllPaymentsController, getPaymentByIdController } = require('../controllers/paymentController')
 
 const routes = [
     {
@@ -80,6 +81,12 @@ const routes = [
     },
 
     {
+        path: '/bid/add',
+        handler: addBidsController,
+        method: 'POST'
+    },
+
+    {
         path: '/supplier/login',
         handler: supplierLoginController,
         method: 'POST'
@@ -89,7 +96,25 @@ const routes = [
         path: '/supplier/getall',
         handler: getAllSuppliersController,
         method: 'GET'
-    }
+    },
+
+    {
+        path: '/payment/getall',
+        handler: getAllPaymentsController,
+        method: 'GET'
+    },
+
+    {
+        path: '/payment/getbyid',
+        handler: getPaymentByIdController,
+        method: 'POST'
+    },
+
+    {
+        path: '/payment/addpayment',
+        handler: addPaymentController,
+        method: 'POST'
+    },
 ]
 
 module.exports = { routes } 
