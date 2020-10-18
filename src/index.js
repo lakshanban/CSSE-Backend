@@ -3,12 +3,12 @@
  * Sri lanka Institute of Information Technology
  */
 
-
 const applyMiddleware = require('./utils').applyMiddleware
 const applyROutes = require('./utils').applyRoutes
 const express = require('express')
 const multer = require('multer')
 const addInvoice = require('./services/invoiceService').addInvoice
+const { PORT } = require('./config/index')
 
 // handling invoices pdf
 const storage = multer.diskStorage({
@@ -27,9 +27,7 @@ const upload = multer({
         fileSize: 1024 * 1024 * 10
     }
 })
-
 const app = express()
-const { loginService } = require('./services/loginService')
 
 // applying middlewares to the express app
 applyMiddleware(app)
@@ -39,7 +37,7 @@ app.use('/uploads', express.static('uploads'))
 applyROutes(app)
 
 //server start listening on the port
-app.listen(3001, () => {
+app.listen(PORT, () => {
     console.log('server is running on port 3001')
 })
 

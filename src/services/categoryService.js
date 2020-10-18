@@ -1,5 +1,6 @@
 const databaseService = require('./databaseService').QueryDatabase
 
+// return all the categories
 const getAllCategories = async () => {
     const result = await databaseService('SELECT * FROM category')
     return result;
@@ -8,3 +9,7 @@ const getAllCategories = async () => {
 module.exports = {
     getAllCategories
 }
+
+/*
+
+*/
