@@ -27,17 +27,24 @@ const updateBidStautus = async (bid_id, status) => {
         const bidDetials = await getBidById(bid_id);
         databaseService(`INSERT INTO purchased values(${Math.random()},${bidDetials[0].supplierId},${bidDetials[0].transport_cost}, ${bidDetials[0].amount},${bidDetials[0].requisitionId}, '${bidDetials[0].description}')`)
         const result = await databaseService(`DELETE FROM bid WHERE bidId = ${bid_id}`)
+        await databaseService(`UPDATE requisition SET status='completed' WHERE requisition_id=${bidDetials[0].requisitionId} '`)
         return "succesfully updated"
     } else {
-        const result = await databaseService(`UPDATE bid SET status='${status}'`);
+        const result = await databaseService(`UPDATE bid SET status='${status} WHERE bidId =${bid_id}'`);
         return "succesfully updated"
     }
 
+}
+
+const getAllFromPurchased = async () => {
+    const result = await databaseService('SELECT * FROM purchased')
+    return result;
 }
 
 module.exports = {
     addBids,
     getAllBids,
     getAllBidsBySupplier,
-    updateBidStautus
+    updateBidStautus,
+    getAllFromPurchased
 }
