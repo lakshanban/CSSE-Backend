@@ -100,7 +100,7 @@ const routes = [
     {
         path: '/bid/getallpurchased',
         handler: getAllFromPurchasedController,     // add bids .. receives(transport_cost: double, amount: double, description: String, supplierId: INT, requisition_id: INT)
-        method: 'GET'
+        method: 'POST'
     },
 
     {

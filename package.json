@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "lintx": "eslint",
+    "prettier": "prettier --config .prettierrc 'src/**/*.js' --write",
+    "lint": "eslint --ignore-pattern '*.png' --ignore-pattern '*.txt' --ignore-pattern '*.json' 'src/**'",
+    "lint:fix": "eslint --ignore-pattern '*.png' --ignore-pattern '*.txt' --ignore-pattern '*.json' 'src/**' --fix"
   },
   "keywords": [],
   "author": "",
@@ -13,12 +17,20 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.13.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
     "express": "^4.17.1",
     "multer": "^1.4.2",
     "mysql": "^2.18.1",
     "mysql-async-wrapper": "^2.0.1"
   },
   "devDependencies": {
-    "jest": "^26.5.3"
+    "eslint": "^7.11.0",
+    "jest": "^26.5.3",
+    "prettier": "^2.1.2",
+    "prettierrc": "0.0.0-5"
   }
 }
