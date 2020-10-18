@@ -3,12 +3,12 @@ const { selectItemsByCategoryController, selectItemsBySupplierController, select
 const { getItemsByRequisitionController, addItemToCartController } = require('../controllers/cartController')
 const { getAllCategoriesController } = require('../controllers/categoryController')
 const { getAllRequisitionByManagerController, getAllRequisitionsController, addRequisitionController } = require('../controllers/requisitionController')
-const { addBidsController, getAllBidsBySupplierController, getAllBidsController } = require('../controllers/bidController')
+const { addBidsController, getAllBidsBySupplierController, getAllBidsController, updateBidStautusController, getAllFromPurchasedController } = require('../controllers/bidController')
 const { getAllSuppliersController, supplierLoginController } = require('../controllers/supplierController')
 const { addPaymentController, getAllPaymentsController, getPaymentByIdController } = require('../controllers/paymentController')
 const { getAllinvoicesController, getInvoiceByIdController } = require('../controllers/invoiceController')
 const { getAllSitesController, getSiteByidController } = require('../controllers/siteController')
-const { getSiteByid } = require('../services/siteService')
+
 
 // this route file holds all the endpoints which applies to the express app
 
@@ -89,6 +89,18 @@ const routes = [
         path: '/bid/add',
         handler: addBidsController,     // add bids .. receives(transport_cost: double, amount: double, description: String, supplierId: INT, requisition_id: INT)
         method: 'POST'
+    },
+
+    {
+        path: '/bid/updatestatus',
+        handler: updateBidStautusController,     // add bids .. receives(transport_cost: double, amount: double, description: String, supplierId: INT, requisition_id: INT)
+        method: 'POST'
+    },
+
+    {
+        path: '/bid/getallpurchased',
+        handler: getAllFromPurchasedController,     // add bids .. receives(transport_cost: double, amount: double, description: String, supplierId: INT, requisition_id: INT)
+        method: 'GET'
     },
 
     {
