@@ -1,12 +1,20 @@
-const DATABASE_USERNAME = "root"
-const DATABASE_PASSWORD = "root"
-const DATABASE_HOST = "localhost"
-const DATABASE = "csse_mobileapp"
+const dotenv = require("dotenv")
+const { env } = require("process")
+
+dotenv.config();
+
+
+const DATABASE_USERNAME = env.DATABASE_USERNAME || ""
+const DATABASE_PASSWORD = env.DATABASE_PASSWORD || ""
+const DATABASE_HOST = env.DATABASE_HOST || ""
+const DATABASE = env.DATABASE || ""
+const PORT = env.PORT || ""
 
 
 module.exports = {
     DATABASE,
     DATABASE_HOST,
     DATABASE_PASSWORD,
-    DATABASE_USERNAME
+    DATABASE_USERNAME,
+    PORT
 }
